@@ -7,6 +7,7 @@ export type Badge = {
   description: string
   earned: boolean
   icon: "seed" | "leaf" | "shield" | "globe" | "star" | "crown"
+  image?: string
 }
 
 /**
@@ -47,6 +48,7 @@ export function getBadges(user: MockUser, myTrees: RegisteredTree[] = []): Badge
       description: "Had a tree pass Nature Hero verification",
       earned: hasVerifiedTree,
       icon: "shield",
+      image: "/validator.jpeg",
     },
     {
       id: "nature-hero",
@@ -54,6 +56,7 @@ export function getBadges(user: MockUser, myTrees: RegisteredTree[] = []): Badge
       description: "Approved as a Nature Hero validator",
       earned: user.role === "nature_hero" || user.role === "admin",
       icon: "star",
+      image: "/hero.jpeg",
     },
     {
       id: "admin",
@@ -61,6 +64,7 @@ export function getBadges(user: MockUser, myTrees: RegisteredTree[] = []): Badge
       description: "Platform administrator",
       earned: user.role === "admin",
       icon: "crown",
+      image: "/admin.jpeg",
     },
   ]
 }

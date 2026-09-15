@@ -40,13 +40,23 @@ export default function BadgesPage() {
                 : "border-white/5 bg-white/[0.02] opacity-40"
             }`}
           >
-            <div
-              className={`mx-auto mb-2 flex h-11 w-11 items-center justify-center rounded-full ${
-                b.earned ? "bg-[#1db954]/15 text-[#1db954]" : "bg-white/5 text-white/30"
-              }`}
-            >
-              <BadgeIcon name={b.icon} className="h-5 w-5" />
-            </div>
+            {b.image ? (
+              <img
+                src={b.image}
+                alt={b.title}
+                className={`mx-auto mb-2 h-11 w-11 rounded-full object-cover ring-1 ring-white/10 ${
+                  b.earned ? "shadow-[0_0_20px_rgba(29,185,84,0.2)]" : "opacity-40 grayscale"
+                }`}
+              />
+            ) : (
+              <div
+                className={`mx-auto mb-2 flex h-11 w-11 items-center justify-center rounded-full ${
+                  b.earned ? "bg-[#1db954]/15 text-[#1db954]" : "bg-white/5 text-white/30"
+                }`}
+              >
+                <BadgeIcon name={b.icon} className="h-5 w-5" />
+              </div>
+            )}
             <div className="mb-0.5 text-xs font-bold">{b.title}</div>
             <div className="text-[10px] leading-tight text-white/40">{b.description}</div>
           </div>
